@@ -9,6 +9,8 @@ public class Service {
 	@GET
 	@Path("/simple")
 	public String simple(){
-		return "Hello!";
+		
+		Info info = new Info();
+		return info.toString();
 	}
 }

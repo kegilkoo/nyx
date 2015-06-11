@@ -1,0 +1,6 @@
+127.0.0.1 - - [12/Jun/2015:00:04:54 +0200] "GET /rest/service/simple HTTP/1.1" 200 99 http-bio-8084-exec-1 46
+127.0.0.1 - - [12/Jun/2015:00:04:55 +0200] "GET /rest/service/simple HTTP/1.1" 200 99 http-bio-8084-exec-2 3
+127.0.0.1 - - [12/Jun/2015:00:04:56 +0200] "GET /rest/service/simple HTTP/1.1" 200 99 http-bio-8084-exec-3 2
+127.0.0.1 - - [12/Jun/2015:00:04:56 +0200] "GET /rest/service/simple HTTP/1.1" 200 99 http-bio-8084-exec-4 2
+127.0.0.1 - - [12/Jun/2015:00:06:21 +0200] "GET /rest/service/simple HTTP/1.1" 200 115 http-bio-8084-exec-1 44
+127.0.0.1 - - [12/Jun/2015:00:09:58 +0200] "GET /rest/service/simple HTTP/1.1" 200 109 http-bio-8084-exec-1 56
