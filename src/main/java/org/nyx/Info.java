@@ -2,6 +2,7 @@ package org.nyx;
 
 import java.io.File;
 import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 
 public class Info {
 
@@ -10,6 +11,7 @@ public class Info {
 	private long diskSize;
 	private long maxMemory;
 	private long memorySize;
+	private OperatingSystemMXBean osBean;	
 	
 	@SuppressWarnings("restriction")
 	public Info(){
@@ -17,6 +19,7 @@ public class Info {
 		this.userName = System.getProperty("user.name");
 		this.maxMemory = Runtime.getRuntime().maxMemory();
 		this.memorySize = ((com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
+		this.osBean = ManagementFactory.getOperatingSystemMXBean();
 	}
 
 	public String getUserName() {
@@ -51,6 +54,14 @@ public class Info {
 		this.memorySize = memorySize;
 	}
 
+	public OperatingSystemMXBean getOsbean() {
+		return this.osBean;
+	}
+
+	public void setOsbean(OperatingSystemMXBean osBean) {
+		this.osBean = osBean;
+	}
+	
 	public static String humanReadableByteCount(long bytes, boolean si) {
 	    int unit = si ? 1000 : 1024;
 	    if (bytes < unit) return bytes + " B";
@@ -61,10 +72,15 @@ public class Info {
 
 	@Override
 	public String toString() {
-		return "Info : <br/>userName=" + getUserName() + "<br/>diskSize=" + humanReadableByteCount(getDiskSize(),false)
-				+ "<br/>maxMemory=" + humanReadableByteCount(getMaxMemory(),false) + "<br/>memorySize=" + humanReadableByteCount(getMemorySize(),false);
+		return "Info : " +
+				"<br/>userName=" + getUserName() 
+			  + "<br/>diskSize=" + humanReadableByteCount(getDiskSize(),false)
+			  + "<br/>maxMemory=" + humanReadableByteCount(getMaxMemory(),false) 
+			  + "<br/>memorySize=" + humanReadableByteCount(getMemorySize(),false)
+			  + "<br/>Architecture=" + getOsbean().getArch()
+			  + "<br/>Processors=" + getOsbean().getAvailableProcessors()
+			  + "<br/>System Load Average=" + getOsbean().getSystemLoadAverage();
 	}
-
 	
 
 }
