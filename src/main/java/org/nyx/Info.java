@@ -72,7 +72,7 @@ public class Info {
 
 	@Override
 	public String toString() {
-		return "Les iiiPLPLnfos : " +
+		return "Les infos : " +
 				"<br/>userName=" + getUserName() 
 			  + "<br/>diskSize=" + humanReadableByteCount(getDiskSize(),false)
 			  + "<br/>maxMemory=" + humanReadableByteCount(getMaxMemory(),false) 
